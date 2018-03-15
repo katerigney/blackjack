@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blackjack</title>
-    <link rel="stylesheet" href="/screen.css">
+    <link rel="stylesheet" href="./screen.css">
   </head>
   <body>
-    <h1>Hello, World!</h1>
-    <script src="/main.js" charset="utf-8"></script>
+    <h1>Blackjack</h1>
+    <section class="blackjackTable">
+      
+      <section class="houseContainer">
+        <h2 class="houseHeader">House</h2>
+        <section class="houseDealtCards">
+        </section>
+      </section>
+
+      <section class="playerContainer">
+        <h2 class="playerHeader">Player</h2>
+        <section class="playerDealtCards">
+        </section>
+        <button type="button" id="dealButtonClick">Deal</button>
+        <button type="button" id="hitButtonClick">Hit</button>            
+      </section>
+</section>
+
+    <section>
+        <button type="button" id="playAgainButtonClick">Play again</button>
+      </section>
+
+    <script src="./main.js" charset="utf-8"></script>
   </body>
 </html>

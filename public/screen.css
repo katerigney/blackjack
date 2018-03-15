@@ -6,4 +6,26 @@ body {
   margin: 0;
   min-height: 100%;
   font: 16px / 1 sans-serif;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blackjackTable {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.houseContainer, .playerContainer {
+  margin:6em;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.houseDealtCards, .playerDealtCards {
+  border: 1px solid red;
+  width: 100px;
+  height: 100px;
 }
