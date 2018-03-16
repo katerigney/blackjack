@@ -61,8 +61,11 @@ const dealButtonClick = () => {
 
 let playerScore = 0;
 let houseScore = 0;
+
 let playerScoreTotal = [];
 let houseScoreTotal = [];
+
+//cardValuesAfterDeal should be i = playerHand.length-1
 
 const cardValuesAfterDeal = () => {
   for (i = 0; i < playerHand.length; i++) {
@@ -177,46 +180,50 @@ const cardValuesAfterDeal = () => {
     houseScoreTotal.push(newHouseScore);
     console.log(houseScoreTotal);
   }
-  playerAddTotal();
+  playerAddTotal(playerScoreTotal);
+  houseAddTotal(houseScoreTotal);
+  
 }
 
+let playerSum = 0;
+let houseSum = 0;
 
 
-// let playerSum = playerScoreTotal.reduce(a,b) => a + b;
+const playerAddTotal = (playerScoreTotal) => {
+  console.log("Button was clicked");
+  for (let i= 0; i < playerScoreTotal.length; i++) {
+    playerSum+=playerScoreTotal[i];
+     console.log(playerSum);
+    }
+  }
 
-// let sumStart = 0;
-// let playerSum = [];
+  const houseAddTotal = (houseScoreTotal) => {
+    console.log("Button was clicked");
+    for (let i= 0; i < houseScoreTotal.length; i++) {
+      houseSum+=houseScoreTotal[i];
+       console.log(houseSum);
+      }
+    }
 
-// const playerAddTotal = () => {
-//   console.log("Button was clicked")
-//   for (let i=0; i < playerScoreTotal.length; i++) {
-//     playerSum = sumStart + playerScoreTotal[i];
-//   }
-//   return playerSum;
-//   console.log (playerSum);
-// }
+    
+const evalScore =  () =>{
 
-
-
-
-// const evalScore =  () =>{
-
-//   if (houseSum > 21){
-//     alert("House busts!")
-//   } 
-//   else if (playerSum > 21){
-//     alert("Player busts!")
-//     }
-//   else if (houseSum = 21){
-//     alert("House wins!")
-//     }
-//   else if (playerSum = 21){
-//     alert("Player wins!")
-//       }
-//   }
-//   //if either house or player over 21 = alert bust
-//   //if either house or player equals 21 - alert winner
-//  //else keep playing 
+  if (houseSum > 21){
+    alert("House busts!")
+  } 
+  else if (playerSum > 21){
+    alert("Player busts!")
+    }
+  else if (houseSum = 21){
+    alert("House wins!")
+    }
+  else if (playerSum = 21){
+    alert("Player wins!")
+      }
+  }
+  //if either house or player over 21 = alert bust
+  //if either house or player equals 21 - alert winner
+ //else keep playing 
 
 
 const hitButtonClick = () => {
