@@ -5,6 +5,8 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  background-color: #0B6623;
+  color: white;
   font: 16px / 1 sans-serif;
   display:flex;
   flex-direction: column;
@@ -24,8 +26,14 @@ body {
   align-items: center;
 }
 
-.houseDealtCards, .playerDealtCards {
+/* .houseDealtCards, .playerDealtCards {
   border: 1px solid red;
-  width: 100px;
-  height: 100px;
+  width: 1000px;
+  height: 1000px;
+} */
+
+.playerButtonOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

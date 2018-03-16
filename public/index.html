@@ -7,27 +7,31 @@
     <link rel="stylesheet" href="./screen.css">
   </head>
   <body>
-    <h1>Blackjack</h1>
-    <button type ="button" onclick="shuffleDeck()">Shuffle</button>
+    <h1>BLACKJACK</h1>
+    <button type="button" onclick="dealButtonClick()">Deal</button>
     <section class="blackjackTable">
       
       <section class="houseContainer">
-        <h2 class="houseHeader">House</h2>
-        <section class="houseDealtCards">
+        <h3 class="houseHeader">HOUSE</h3>
+        <section >
+          <p id="houseDealtCards"></p>
         </section>
       </section>
 
       <section class="playerContainer">
-        <h2 class="playerHeader">Player</h2>
-        <section class="playerDealtCards">
+        <h3 class="playerHeader">PLAYER</h3>
+        <section>
+            <p id="playerDealtCards"></p>
         </section>
-        <button type="button" id="dealButtonClick()">Deal</button>
-        <button type="button" id="hitButtonClick()">Hit</button>            
+        <section class="playerButtonOptions">
+        <button type="button" onclick="hitButtonClick()">Hit</button>     
+        <button type="button" onclick="stayButtonClick()">Stay</button>      
+      </section>     
       </section>
 </section>
 
     <section>
-        <button type="button" id="playAgainButtonClick">Play again</button>
+        <button type="button" onclick="playAgainButtonClick()">Play again</button>
       </section>
 
     <script src="./main.js" charset="utf-8"></script>
