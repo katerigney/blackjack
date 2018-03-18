@@ -9,6 +9,8 @@ let numberSelected = "";
 let card = [];
 
 const shuffleDeck = () => {
+  document.querySelector('.playerButtonOptions').style.visibility = "hidden";
+  document.querySelector('.playAgainButton').style.visibility = "hidden";
   // console.log("Button was clicked");
   for (let i = 0; i < suitOptions.length; i++) {
     suitSelected = suitOptions[i];
@@ -36,8 +38,9 @@ const dealButtonClick = () => {
     finalCard = thisDeck[arrayItemPull];
     houseHand.push(finalCard);
   }
-  document.querySelector('#houseDealtCards').textContent = houseHand;
-  // console.log(houseHand);
+  // document.querySelector('#houseDealtCards').textContent = houseHand;
+  document.querySelector('#houseDealtCards').textContent = "House Hand";
+  console.log(houseHand);
   // // - house cards are hidden until reveal
   for (i = 0; i <= 1; i++) {
     arrayItemPull = [Math.floor(Math.random() * thisDeck.length)];
@@ -171,28 +174,36 @@ const houseAddTotal = (houseScoreTotal) => {
 
 const evalScore = () => {
   if (houseSum > 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("House busts!")
-    location.reload();
     console.log("House busts!");
-    //house cards are revealed
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (playerSum > 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("Player busts!")
-    location.reload();
     console.log("Player busts!");
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (houseSum === 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("House wins!")
-    location.reload();
     console.log("House wins!");
-    //house cards are revealed
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (playerSum === 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("Player wins!")
-    location.reload();
     console.log("Player wins!");
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
-  //else hit or stay? appears
+  else if (houseSum === playerSum){
+    alert("It's a draw!")
+    document.querySelector('.playAgainButton').style.visibility = "visible";
+  }
+  else {
+  document.querySelector('.playerButtonOptions').style.visibility = "visible";
+  }
 }
 
 
@@ -283,28 +294,36 @@ const evalScoreAfterStay = () => {
   console.log(houseSum);
   console.log(playerSumAfterStay);
   if (houseSum > 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("House busts!")
-    location.reload();
     console.log("House busts!");
-    //  house cards are revealed
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (playerSumAfterStay > 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("Player busts!")
-    location.reload();
     console.log("Player busts!");
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (houseSum === 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("House wins!")
-    location.reload();
     console.log("House wins!");
-    //house cards are revealed
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (playerSumAfterStay === 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("Player wins!")
-    location.reload();
     console.log("Player wins!");
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
+  else if (houseSum === playerSumAfterStay){
+    alert("It's a draw!")
+    document.querySelector('.playAgainButton').style.visibility = "visible";
+  }
+  else {
   housePlay();
+  }
 }
 
 
@@ -405,37 +424,44 @@ const evalScoreAfterHousePlays = () => {
   console.log(houseSumAfterHousePlays);
   console.log(playerSumAfterStay);
   if (houseSumAfterHousePlays > 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("House busts!")
-    location.reload();
     console.log("House busts!");
-    //  house cards are revealed
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (playerSumAfterStay > 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("Player busts!")
-    location.reload();
     console.log("Player busts!");
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (houseSumAfterHousePlays === 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("House wins!")
-    location.reload();
     console.log("House wins!");
-    //house cards are revealed
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (playerSumAfterStay === 21) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("Player wins!")
-    location.reload();
     console.log("Player wins!");
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (houseSumAfterHousePlays > playerSumAfterStay) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("House wins!")
-    location.reload();
     console.log("House wins!");
-    //house cards are revealed
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else if (houseSumAfterHousePlays < playerSumAfterStay) {
+    document.querySelector('#houseDealtCards').textContent = houseHand;
     alert("Player wins!")
-    location.reload();
     console.log("Player wins!");
+    document.querySelector('.playAgainButton').style.visibility = "visible";
+  }
+  else if (houseSumAfterHousePlays === playerSumAfterStay){
+    alert("It's a draw!")
+    document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else {
     housePlay();
