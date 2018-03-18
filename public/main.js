@@ -312,18 +312,21 @@ const evalScoreAfterStay = () => {
 
 const housePlay = () => {
   console.log(houseSum + "house is playing")
-  if (houseSum <= 18) {
+  if (houseSum < 18) {
     arrayItemPull = [Math.floor(Math.random() * thisDeck.length)];
     finalCard = thisDeck[arrayItemPull];
     houseHand.push(finalCard);
     console.log(houseHand)
     cardValuesAfterHousePlays();
   }
-  else if (houseSumAfterHousePlays <= 18) {
+  else if (houseSumAfterHousePlays > 0 && houseSumAfterHousePlays < 18) {
     arrayItemPull = [Math.floor(Math.random() * thisDeck.length)];
     finalCard = thisDeck[arrayItemPull];
     houseHand.push(finalCard);
     console.log(houseHand)
+    cardValuesAfterHousePlays();
+  }
+  else {
     cardValuesAfterHousePlays();
   }
   document.querySelector('#houseDealtCards').textContent = houseHand;
@@ -390,7 +393,12 @@ const houseAddTotalAfterHousePlays = (houseScoreTotalAfterHousePlays) => {
     houseSumAfterHousePlays += houseScoreTotalAfterHousePlays[i];
     console.log(houseSumAfterHousePlays);
   }
-  setTimeout(evalScoreAfterHousePlays, 1000)
+  if (houseSumAfterHousePlays > 0 && houseSumAfterHousePlays < 18) {
+    housePlay();
+  }
+  else if (houseSumAfterHousePlays >= 18){
+    setTimeout(evalScoreAfterHousePlays, 1000)
+  }
 }
 
 const evalScoreAfterHousePlays = () => {
