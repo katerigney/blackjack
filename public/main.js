@@ -65,7 +65,6 @@ let houseScore = 0;
 let playerScoreTotal = [];
 let houseScoreTotal = [];
 
-//cardValuesAfterDeal should be i = playerHand.length-1
 
 const cardValuesAfterDeal = () => {
   for (i = 0; i < playerHand.length; i++) {
@@ -190,7 +189,6 @@ let houseSum = 0;
 
 
 const playerAddTotal = (playerScoreTotal) => {
-  console.log("Button was clicked");
   for (let i= 0; i < playerScoreTotal.length; i++) {
     playerSum+=playerScoreTotal[i];
      console.log(playerSum);
@@ -203,27 +201,32 @@ const playerAddTotal = (playerScoreTotal) => {
       houseSum+=houseScoreTotal[i];
        console.log(houseSum);
       }
+  setTimeout(evalScore,5000)
     }
+
 
     
 const evalScore =  () =>{
-
   if (houseSum > 21){
     alert("House busts!")
+    console.log(houseSum);    
   } 
   else if (playerSum > 21){
     alert("Player busts!")
+    console.log(houseSum);  
     }
-  else if (houseSum = 21){
+  else if (houseSum === 21){
     alert("House wins!")
+    console.log(houseSum);  
     }
-  else if (playerSum = 21){
+  else if (playerSum === 21){
     alert("Player wins!")
+    console.log(houseSum);
       }
-  }
-  //if either house or player over 21 = alert bust
-  //if either house or player equals 21 - alert winner
- //else keep playing 
+  // else {
+  //   hitButtonClick();
+  // }
+}
 
 
 const hitButtonClick = () => {
