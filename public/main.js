@@ -29,13 +29,20 @@ const shuffleDeck = () => {
 
 //DEAL///////////////////////////////////////
 
+
+// Tried to use splice to remove played cards from the array (thisDeck) but could not make it work.
+
 let houseHand = [];
 let playerHand = [];
+let thisDeckPlayedCards = [];
 
 const dealButtonClick = () => {
   for (i = 0; i <= 1; i++) {
-    arrayItemPull = [Math.floor(Math.random() * thisDeck.length)];
+    arrayItemPull = [Math.floor(Math.random() * thisDeck.length)]
+    // thisDeckPlayedCards=thisDeck.splice(arrayItemPull);
+    // thisDeck.splice(arrayItemPull);
     finalCard = thisDeck[arrayItemPull];
+    // console.log(thisDeckPlayedCards);
     houseHand.push(finalCard);
   }
   // document.querySelector('#houseDealtCards').textContent = houseHand;
@@ -160,7 +167,8 @@ let houseSum = 0;
 const playerAddTotal = (playerScoreTotal) => {
   for (let i = 0; i < playerScoreTotal.length; i++) {
     playerSum += playerScoreTotal[i];
-    console.log(playerSum); }
+    console.log(playerSum);
+  }
 }
 
 const houseAddTotal = (houseScoreTotal) => {
@@ -197,12 +205,12 @@ const evalScore = () => {
     console.log("Player wins!");
     document.querySelector('.playAgainButton').style.visibility = "visible";
   }
-  else if (houseSum === playerSum){
+  else if (houseSum === playerSum) {
     alert("It's a draw!")
     document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else {
-  document.querySelector('.playerButtonOptions').style.visibility = "visible";
+    document.querySelector('.playerButtonOptions').style.visibility = "visible";
   }
 }
 
@@ -317,12 +325,12 @@ const evalScoreAfterStay = () => {
     console.log("Player wins!");
     document.querySelector('.playAgainButton').style.visibility = "visible";
   }
-  else if (houseSum === playerSumAfterStay){
+  else if (houseSum === playerSumAfterStay) {
     alert("It's a draw!")
     document.querySelector('.playAgainButton').style.visibility = "visible";
   }
   else {
-  housePlay();
+    housePlay();
   }
 }
 
@@ -415,7 +423,7 @@ const houseAddTotalAfterHousePlays = (houseScoreTotalAfterHousePlays) => {
   if (houseSumAfterHousePlays > 0 && houseSumAfterHousePlays < 18) {
     housePlay();
   }
-  else if (houseSumAfterHousePlays >= 18){
+  else if (houseSumAfterHousePlays >= 18) {
     setTimeout(evalScoreAfterHousePlays, 1000)
   }
 }
@@ -459,7 +467,7 @@ const evalScoreAfterHousePlays = () => {
     console.log("Player wins!");
     document.querySelector('.playAgainButton').style.visibility = "visible";
   }
-  else if (houseSumAfterHousePlays === playerSumAfterStay){
+  else if (houseSumAfterHousePlays === playerSumAfterStay) {
     alert("It's a draw!")
     document.querySelector('.playAgainButton').style.visibility = "visible";
   }
